@@ -12,14 +12,14 @@ require 'rake/testtask'
 require 'spec/rake/spectask'
 
 spec = Gem::Specification.new do |s|
-  s.name = 'FacebookConnector'
+  s.name = 'FBomb'
   s.version = '0.0.1'
   s.has_rdoc = true
   s.extra_rdoc_files = ['README', 'LICENSE']
   s.summary = 'Your summary here'
   s.description = s.summary
-  s.author = ''
-  s.email = ''
+  s.author = 'Nathan Fisher'
+  s.email = 'nfisher+fbomb@junctionbox.ca'
   # s.executables = ['your_executable_here']
   s.files = %w(LICENSE README Rakefile) + Dir.glob("{bin,lib,spec}/**/*")
   s.require_path = "lib"
@@ -49,3 +49,6 @@ Spec::Rake::SpecTask.new do |t|
   t.spec_files = FileList['spec/**/*.rb']
   t.libs << Dir["lib"]
 end
+
+task :default => [:test]
+
