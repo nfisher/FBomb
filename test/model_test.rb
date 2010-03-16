@@ -44,7 +44,7 @@ module Facebook
     end
 
     def test_determine_finder_as_all
-      assert_equal :find_all, @instance.determine_finder(@instance.method_id_to_matches('find_page_all_by_name'))
+      assert_equal :find_every, @instance.determine_finder(@instance.method_id_to_matches('find_page_all_by_name'))
     end
 
     def test_extract_attribute_names_from_match_with_one_attribute_defined
@@ -52,7 +52,7 @@ module Facebook
     end
 
     def test_extract_attribute_names_from_match_with_two_attributes_defined
-      assert_equal ['name','uid'], @instance.extract_attribute_names_from_match(@instance.method_id_to_matches('find_page_by_name'))
+      assert_equal ['name','uid'], @instance.extract_attribute_names_from_match(@instance.method_id_to_matches('find_page_by_name_and_uid'))
     end
 
     def test_conditions_from_arguments_is_correct_with_one_parameter

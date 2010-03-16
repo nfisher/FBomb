@@ -31,6 +31,10 @@ module Facebook
       /^find_(.*?)(?:_(all_by|by)_(.*?))?$/.match(method_id)
     end
 
+    def determine_finder(match)
+      match.captures[1] == 'all_by' ? :find_every : :find_initial
+    end
+
     def extract_attribute_names_from_match(match)
       match.captures.last.split('_and_')
     end
