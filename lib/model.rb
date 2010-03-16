@@ -8,7 +8,7 @@ module Facebook
     # dynamic finder method, shamelessly extracted from rails
     def method_missing(method_id, *arguments)
       if match = method_id_to_matches(method_id.to_s)
-        @table_name = match[1]
+        @table_name = match.captures.first
 
         attribute_names = []
         attribute_names ||= extract_attribute_names_from_match(match)

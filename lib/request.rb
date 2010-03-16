@@ -1,9 +1,6 @@
 
 module Facebook
   class Request
-    def initialize
-		end
-
 		def cat( args )
 			args.keys.sort_by{|s| s.to_s}.map{|k| "#{k}=#{args[k]}"}.join
 		end
@@ -15,7 +12,7 @@ module Facebook
 		def prepare( args, secret, call_at = nil )
       call_at ||= microtime
 			without_sig = args.merge({ :call_at => call_at })
-			without_sig.merge(:sig => signature(without_sig,secret))
+			without_sig.merge(:sig => signature(without_sig, secret))
 		end
     
     private
